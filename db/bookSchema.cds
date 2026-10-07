@@ -7,10 +7,14 @@ namespace Bookstore.db;
 
 entity Books : cuid, managed {
     // key Id : String;  // good practice is to use uuid like GUID
-    Title    : String;
-    Author   : Association to Authors;
-    Chapters : Composition of many Chapters
-                   on Chapters.book = $self
+    Title       : String;
+    Author      : Association to Authors;
+    genre       : String;
+    publisheddt : Date;
+    pages       : Integer;
+    price       : Decimal(9, 2);
+    Chapters    : Composition of many Chapters
+                      on Chapters.book = $self
 }
 
 entity Authors : cuid, managed {
